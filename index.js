@@ -7,7 +7,7 @@ const upload = multer({ dest: "uploads/" });
 const app = express();
 
 app.use(cors());
-app.use(express.static("public"));
+app.use("/public", express.static(process.cwd() + "/public"));
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/views/index.html");
